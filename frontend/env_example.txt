@@ -1,0 +1,5 @@
+# Resend API Key (Get from https://resend.com/api-keys)
+RESEND_API_KEY=re_123456789
+
+# Admin Email to receive contact inquiries
+ADMIN_CONTACT_EMAIL=dhruv.monkeyads@gmail.com

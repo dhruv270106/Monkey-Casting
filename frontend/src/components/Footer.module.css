@@ -1,0 +1,159 @@
+.footer {
+    background-color: #1f295c;
+    border-top: 1px solid var(--border);
+    padding: 80px 0 30px;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.footerContainer {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.brandColumn h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brandDesc {
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.columnTitle {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.linksList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.linksList li a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s, padding-left 0.3s;
+}
+
+.linksList li a:hover {
+    color: var(--primary);
+    padding-left: 5px;
+}
+
+.socialRow {
+    display: flex;
+    gap: 15px;
+}
+
+.socialIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socialIcon:hover {
+    background: var(--primary);
+    color: #000;
+    transform: translateY(-3px);
+}
+
+.newsletterForm {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: #fff;
+    flex: 1;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    border-color: var(--primary);
+}
+
+.subscribeBtn {
+    background: var(--primary);
+    color: #000;
+    border: none;
+    padding: 0 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.subscribeBtn:hover {
+    opacity: 0.9;
+}
+
+.bottomBar {
+    border-top: 1px solid #1a1a1a;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+    .footerContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding: 40px 0 20px;
+    }
+
+    .brandColumn h3 {
+        font-size: 1.5rem;
+    }
+
+    .footerContainer {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .bottomBar {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .socialRow {
+        justify-content: center;
+    }
+
+    .contactList li {
+        justify-content: center;
+    }
+}

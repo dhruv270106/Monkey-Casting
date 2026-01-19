@@ -1,0 +1,272 @@
+/* About Page Styles */
+.aboutPage {
+    background: #ffffff;
+    color: #333333;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.heroSection {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Cinematic Background Layer */
+    background: linear-gradient(to bottom, rgba(31, 41, 92, 0.8), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax effect */
+    overflow: hidden;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.heroHeadline {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, #ffffff, #a5a5a5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heroSubline {
+    font-size: 1.5rem;
+    color: #ffbe0b;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+/* Section Common */
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.sectionTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1f295c;
+    text-align: center;
+}
+
+.sectionSubtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+/* Dark Sections -> Converted to Light/Gray */
+.darkSection {
+    background: #f8f9fa;
+    /* Light gray instead of black */
+    color: #333333;
+}
+
+.darkSection .sectionTitle {
+    color: #1f295c;
+    /* Dark blue title */
+}
+
+.darkSection .sectionSubtitle {
+    color: #666666;
+}
+
+/* Cards */
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.featureCard {
+    background: #ffffff;
+    /* White card */
+    border: 1px solid #e2e8f0;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.featureCard:hover {
+    transform: translateY(-10px);
+    border-color: #ffbe0b;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+    margin-bottom: 20px;
+    color: #ffbe0b;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1f295c;
+    /* Dark blue title */
+}
+
+.cardText {
+    color: #555555;
+    /* Dark gray text */
+    line-height: 1.6;
+}
+
+/* Process Steps */
+.processContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.processStep {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.processStep:hover {
+    transform: translateX(10px);
+    border-color: #1f295c;
+}
+
+.stepNumber {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffbe0b;
+    opacity: 0.8;
+    line-height: 1;
+}
+
+/* Final CTA */
+.finalCta {
+    background: #1f295c;
+    /* Kept Dark Blue for branding impact */
+    text-align: center;
+    padding: 120px 0;
+}
+
+.glowBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffbe0b;
+    color: #000;
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 190, 11, 0.4);
+}
+
+.glowBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 190, 11, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .heroHeadline {
+        font-size: 2.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    /* Reduce button size on mobile */
+    .glowBtn {
+        padding: 15px 30px !important;
+        /* Override inline styles if present, though we will remove them */
+        font-size: 1rem !important;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Stack flex rows */
+    .monkeyCastingRow {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    /* Why Grid becomes single column */
+    .whyGrid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Center text alignments that are forced left on desktop */
+    .centerOnMobile {
+        text-align: center !important;
+        align-items: center !important;
+    }
+}
+
+/* New Layout Classes replacing inline styles */
+.monkeyCastingRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Default Grid (Mobile First or Standard) */
+.whyGrid {
+    display: grid;
+    gap: 20px;
+    text-align: left;
+}
+
+/* Force 2 Columns on Desktop/Tablet */
+@media (min-width: 641px) {
+    .whyGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Force 1 Column on Mobile */
+@media (max-width: 640px) {
+    .whyGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .contactGrid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Resize Main Card Icons on Mobile */
+    .cardIcon {
+        width: 32px !important;
+        height: 32px !important;
+    }
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}

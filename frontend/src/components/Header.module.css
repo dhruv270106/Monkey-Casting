@@ -1,0 +1,160 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+}
+
+.navLink {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.navLink:hover,
+.navLinkActive {
+    color: var(--text-main);
+}
+
+.authButtons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatarContainer {
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--surface-highlight);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    width: 200px;
+    padding: 8px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+}
+
+.avatarContainer:hover .dropdown {
+    display: flex;
+}
+
+.dropdownItem {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    transition: background 0.2s;
+}
+
+.dropdownItem:hover {
+    background: var(--surface-highlight);
+    color: var(--primary);
+}
+
+/* Mobile Menu - basic implementation */
+.mobileMenuBtn {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--text-main);
+}
+
+@media (max-width: 1024px) {
+    .nav {
+        display: none;
+    }
+
+    .mobileMenuBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        color: #1f295c;
+        border: none;
+    }
+}
+
+.mobileMenu {
+    position: fixed;
+    inset: 0;
+    top: 80px;
+    /* Below header */
+    background: #ffffff;
+    z-index: 99;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-top: 1px solid var(--border);
+    animation: slideDown 0.3s ease-out;
+}
+
+.mobileMenu .navLink {
+    font-size: 1.25rem;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    color: var(--text-main);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
