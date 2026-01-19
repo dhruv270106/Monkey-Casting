@@ -123,8 +123,16 @@ export default function UserManagement() {
 
         setResetting(userId)
         try {
+            // Use explicitly defined site URL if available, otherwise fallback to current origin
+            // This ensures if Admin is on localhost but wants to send live link (unlikely but possible), they can set env var.
+            // But mostly it ensures that if they ARE on live, it uses live.
+            // Users often test on localhost and complain it sends localhost links. 
+            // I will force it to use the window origin which IS the correct behavior for 99% of cases, 
+            // but I'll add a check for a production override if they want to hardcode it in .env.
+            const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin
+
             const { error } = await supabase.auth.resetPasswordForEmail(email, {
-                redirectTo: `${window.location.origin}/reset-password`,
+                redirectTo: `${siteUrl}/reset-password`,
             })
 
             if (error) throw error

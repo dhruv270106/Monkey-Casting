@@ -61,9 +61,9 @@ export default function ResetPassword() {
     }
 
     return (
-        <div className="container" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="container" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
             <div className={styles.card} style={{ maxWidth: '400px', width: '100%' }}>
-                <h1 className="title-gradient" style={{ textAlign: 'center', marginBottom: '10px' }}>Reset Password</h1>
+                <h1 style={{ textAlign: 'center', marginBottom: '10px', color: 'var(--primary)' }}>Reset Password</h1>
                 <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '30px' }}>Enter your new password below.</p>
 
                 {error && <div style={{ color: '#ef4444', marginBottom: '15px', textAlign: 'center', padding: '10px', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '8px' }}>{error}</div>}

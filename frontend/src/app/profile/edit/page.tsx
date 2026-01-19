@@ -260,7 +260,7 @@ export default function EditProfile() {
                 <Link href="/profile" className="btn btn-outline" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                     <ArrowLeft size={16} /> Back
                 </Link>
-                <h1 style={{ fontSize: '2rem' }} className="title-gradient">Edit Profile</h1>
+                <h1 style={{ fontSize: '2rem', color: 'var(--primary)' }}>Edit Profile</h1>
             </div>
 
             <div className={styles.card} style={{ maxWidth: '100%' }}>

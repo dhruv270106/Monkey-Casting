@@ -103,6 +103,12 @@ function LoginContent() {
                         />
                     </div>
 
+                    <div style={{ textAlign: 'right', marginBottom: '15px' }}>
+                        <Link href="/forgot-password" style={{ fontSize: '0.9rem', color: 'var(--primary)', textDecoration: 'none' }}>
+                            Forgot Password?
+                        </Link>
+                    </div>
+
                     <button type="submit" className={styles.submitBtn} disabled={loading}>
                         {loading ? 'Logging In...' : 'Login'}
                     </button>
