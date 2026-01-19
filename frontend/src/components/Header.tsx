@@ -13,6 +13,8 @@ const Header = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+
+
     const isActive = (path: string) => pathname === path ? styles.navLinkActive : ''
 
     const NavLinks = () => (
