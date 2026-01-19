@@ -26,37 +26,57 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const router = useRouter()
 
     useEffect(() => {
-        // Check active session
-        const checkUser = async () => {
-            try {
-                const { data: { session } } = await supabase.auth.getSession()
-                setUser(session?.user ?? null)
+        let mounted = true
 
-                if (session?.user) {
-                    fetchProfile(session.user.id)
-                } else {
-                    setLoading(false)
+        async function initializeAuth() {
+            try {
+                // 1. Get initial session
+                const { data: { session } } = await supabase.auth.getSession()
+
+                if (mounted) {
+                    if (session?.user) {
+                        setUser(session.user)
+                        await fetchProfile(session.user.id)
+                    } else {
+                        setUser(null)
+                        setProfile(null)
+                        setLoading(false)
+                    }
+                }
+
+                // 2. Listen for changes
+                const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+                    console.log('Auth State Change:', event)
+
+                    if (!mounted) return
+
+                    if (event === 'SIGNED_OUT') {
+                        setUser(null)
+                        setProfile(null)
+                        setLoading(false)
+                        router.push('/login')
+                    } else if (session?.user) {
+                        setUser(session.user)
+                        // Only fetch profile if user ID changed or we don't have it
+                        // But simplest is to just fetch to be safe/sync
+                        if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION') {
+                            await fetchProfile(session.user.id)
+                        }
+                    }
+                    // Note: session can be null on TOKEN_REFRESHED error etc, but usually SIGNED_OUT handles explicit logout
+                })
+
+                return () => {
+                    mounted = false
+                    subscription.unsubscribe()
                 }
             } catch (error) {
-                console.error("Error checking session:", error)
-                setLoading(false)
+                console.error("Auth init error:", error)
+                if (mounted) setLoading(false)
             }
         }
 
-        checkUser()
-
-        // Listen for changes
-        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
-            setUser(session?.user ?? null)
-            if (session?.user) {
-                fetchProfile(session.user.id)
-            } else {
-                setProfile(null)
-                setLoading(false)
-            }
-        })
-
-        return () => subscription.unsubscribe()
+        initializeAuth()
     }, [])
 
     const fetchProfile = async (userId: string) => {
