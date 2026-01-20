@@ -249,4 +249,30 @@ label {
     /* Often better on mobile */
     padding: 14px 20px;
   }
+
+  /* Responsive Grids for Profile Pages */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* Fix overlapping/overflowing text containers */
+  [class*="glass"] {
+    padding: 20px !important;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    /* Ensure long words/links don't overflow */
+  }
+
+  /* Ensure images in columns respect width */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Reset sticky positioning on mobile as it can break layout */
+  [style*="sticky"] {
+    position: static !important;
+  }
 }
