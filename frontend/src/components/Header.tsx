@@ -49,7 +49,7 @@ const Header = () => {
                                 style={{ position: 'relative' }}
                             >
                                 <div className={styles.avatar}>
-                                    {profile?.name ? profile.name[0].toUpperCase() : <UserIcon size={20} />}
+                                    <UserCircle size={28} />
                                 </div>
 
                                 {/* Dropdown - Toggle via State */}

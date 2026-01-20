@@ -123,7 +123,7 @@ export default function MyProfile() {
 
                 {/* Right Column: Dynamic Data */}
                 <div>
-                    <h1 className="title-gradient" style={{ fontSize: '3rem', lineHeight: 1.1 }}>{displayName}</h1>
+                    <h1 style={{ fontSize: '3rem', lineHeight: 1.1, color: '#1f295c' }}>{displayName}</h1>
                     <p style={{ fontSize: '1.5rem', color: 'var(--primary)', marginBottom: '30px' }}>{profile.category}</p>
 
                     {/* Show Physical Stats ONLY if relevant data exists */}

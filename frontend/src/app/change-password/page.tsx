@@ -77,7 +77,7 @@ export default function ChangePassword() {
     return (
         <div className="container section" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div className={styles.card} style={{ maxWidth: '500px', width: '100%' }}>
-                <h1 className="title-gradient" style={{ textAlign: 'center', marginBottom: '20px' }}>Change Password</h1>
+                <h1 style={{ textAlign: 'center', marginBottom: '20px', color: '#1f295c' }}>Change Password</h1>
                 <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '30px' }}>
                     For your security, please update your password.
                 </p>
