@@ -305,6 +305,8 @@ export default function MyProfile() {
                         width: 100%;
                         margin-bottom: 12px;
                         justify-content: center;
+                        padding: 10px 16px !important; /* Smaller size */
+                        font-size: 0.9rem !important;
                     }
                     .action-buttons {
                         display: flex; /* keep flex for row */
@@ -315,12 +317,13 @@ export default function MyProfile() {
                     .action-btn {
                         width: 48%; /* Slightly less than 50% to account for gap */
                         justify-content: center;
-                        padding: 10px 10px !important;
-                        font-size: 0.85rem !important;
+                        padding: 8px 12px !important; /* SIGNIFICANTLY SMALLER */
+                        font-size: 0.8rem !important; /* Small font */
                         white-space: nowrap;
+                        height: 36px; /* fixed height for consistency */
                     }
                     .btn-text {
-                        
+                        font-size: 0.8rem;
                     }
                 }
             `}</style>
