@@ -151,23 +151,48 @@ export default function EditProfile() {
 
         try {
             setSubmitting(true)
-            setMessage('')
-            const fileExt = file.name.split('.').pop()
+            setMessage('Starting upload...')
+
+            // Face Detection & Cropping for Profile Photos
+            let fileToUpload = file
+            if (fieldName === 'profile_photo_url') {
+                setMessage('Detecting face and optimizing image...')
+                try {
+                    // Dynamic import to avoid SSR issues if any, though regular import is fine in client component
+                    const { cropToFace } = await import('@/utils/faceCrop')
+                    const croppedBlob = await cropToFace(file)
+                    fileToUpload = new File([croppedBlob], file.name, { type: file.type })
+                    setMessage('Face detected. Uploading optimized image...')
+                } catch (cropError) {
+                    console.error('Face detection error:', cropError)
+                    setMessage('Face detection warning: proceeding with original image...')
+                }
+            }
+
+            const fileExt = fileToUpload.name.split('.').pop()
             const fileName = `${user!.id}/${Date.now()}_${fieldName}.${fileExt}`
 
-            const { error: uploadError } = await supabase.storage.from('talent-media').upload(fileName, file)
+            // Use upsert true to overwrite if same name, though timestamp prevents it usually.
+            const { error: uploadError } = await supabase.storage.from('talent-media').upload(fileName, fileToUpload, {
+                cacheControl: '3600',
+                upsert: false
+            })
             if (uploadError) throw uploadError
 
             const { data } = supabase.storage.from('talent-media').getPublicUrl(fileName)
 
+            // Force a cache-busting param if we want immediate update visibility even if URL is same (it won't be due to timestamp)
+            const publicUrl = data.publicUrl
+
             if (isCustom) {
-                setCustomValues(prev => ({ ...prev, [fieldName]: data.publicUrl }))
+                setCustomValues(prev => ({ ...prev, [fieldName]: publicUrl }))
             } else {
-                setProfile((prev: any) => ({ ...prev, [fieldName]: data.publicUrl }))
+                setProfile((prev: any) => ({ ...prev, [fieldName]: publicUrl }))
             }
 
             setMessage('File uploaded successfully')
         } catch (err: any) {
+            console.error(err)
             setMessage('Upload error: ' + err.message)
         } finally {
             setSubmitting(false)

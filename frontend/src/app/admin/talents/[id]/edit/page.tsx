@@ -133,12 +133,30 @@ export default function EditTalent() {
 
         try {
             setSubmitting(true)
-            const fileExt = file.name.split('.').pop()
+
+            let fileToUpload = file;
+            if (field === 'profile_photo_url') {
+                setMessage('Detecting face and optimizing image...')
+                try {
+                    const { cropToFace } = await import('@/utils/faceCrop')
+                    const croppedBlob = await cropToFace(file)
+                    fileToUpload = new File([croppedBlob], file.name, { type: file.type })
+                    setMessage('Face detected. Uploading optimized image...')
+                } catch (cropErr) {
+                    console.error('Face crop warning:', cropErr)
+                    setMessage('Face detection warning: proceeding with original image...')
+                }
+            }
+
+            const fileExt = fileToUpload.name.split('.').pop()
             const fileName = `${user.id}/${field}_${Math.random()}.${fileExt}`
 
             const { error: uploadError } = await supabase.storage
                 .from('talent-media')
-                .upload(fileName, file)
+                .upload(fileName, fileToUpload, {
+                    cacheControl: '3600',
+                    upsert: false
+                })
 
             if (uploadError) throw uploadError
 
