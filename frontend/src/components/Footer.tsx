@@ -10,7 +10,9 @@ export default function Footer() {
                 <div className={styles.footerContainer}>
                     {/* Brand Column */}
                     <div className={styles.brandColumn}>
-                        <h3>Monkey Casting</h3>
+                        <Link href="/" style={{ display: 'inline-block', marginBottom: '15px' }}>
+                            <img src="/logo.png" alt="Monkey Casting Logo" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
+                        </Link>
                         <p className={styles.brandDesc}>
                             The premier casting gateway connecting extraordinary talent with world-class productions.
                         </p>

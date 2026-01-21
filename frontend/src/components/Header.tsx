@@ -33,7 +33,9 @@ const Header = () => {
             <header className={styles.header}>
                 <div className={styles.container}>
                     <div className={styles.logo}>
-                        <Link href="/"><span style={{ color: 'var(--primary)' }}>MONKEY</span> <span style={{ color: 'var(--text-main)' }}>CASTING</span></Link>
+                        <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
+                            <img src="/logo.png" alt="Monkey Casting Logo" style={{ height: '50px', width: 'auto', objectFit: 'contain' }} />
+                        </Link>
                     </div>
 
                     {/* Desktop Nav */}
