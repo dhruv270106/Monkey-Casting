@@ -210,8 +210,18 @@
     /* Stack flex rows */
     .monkeyCastingRow {
         flex-direction: column;
-        text-align: center;
+        /* text-align: center; REMOVED to allow left alignment */
         gap: 30px;
+    }
+
+    .monkeyCastingRow p {
+        text-align: left;
+        /* Ensure paragraph matches */
+    }
+
+    .castingList {
+        padding-left: 10px;
+        /* "left side ki padding de ke" */
     }
 
     /* Why Grid becomes single column */
@@ -231,8 +241,27 @@
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    align-items: center;
+    align-items: flex-start;
+    /* Changed from center to align top */
 }
+
+.castingList {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.castingItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Default Grid (Mobile First or Standard) */
 
 /* Default Grid (Mobile First or Standard) */
 .whyGrid {

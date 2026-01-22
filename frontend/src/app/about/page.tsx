@@ -84,9 +84,9 @@ export default function About() {
                             <p style={{ fontSize: '1.2rem', lineHeight: 1.6, marginBottom: '20px' }}>
                                 Monkey Casting is a central talent onboarding platform where aspiring and professional talents submit their profiles to be considered for:
                             </p>
-                            <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
+                            <ul className={styles.castingList}>
                                 {['Brand films', 'Ad commercials', 'Social Cinema™ projects', 'Music videos', 'Digital & web content', 'Story-driven productions'].map((item, i) => (
-                                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.1rem', fontWeight: 500 }}>
+                                    <li key={i} className={styles.castingItem}>
                                         <Video size={20} color="#1f295c" /> {item}
                                     </li>
                                 ))}
