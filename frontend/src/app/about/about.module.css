@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('https://images.unsplash.com/photo-1517604931442-710ce95bdc22?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+    background: url('/about_hero.png') no-repeat center center/cover;
     background-attachment: fixed;
 }
 
@@ -161,21 +161,39 @@
     gap: 3rem;
 }
 
-.gapCard {
-    background: rgba(255, 255, 255, 0.05);
+/* Shared styles for both cards to ensure consistency */
+.gapCard,
+.solutionCard {
+    background: rgba(255, 255, 255, 0.03);
+    /* Ultra transparent */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* Subtle default border */
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    /* Deep shadow for 3D feel */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy 3D transition */
+    transform-style: preserve-3d;
+    color: #ffffff;
 }
 
-.gapCard:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.2);
+/* Remove specific solutionCard background to keep it transparent like gapCard */
+.solutionCard {
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+}
+
+.gapCard:hover,
+.solutionCard:hover {
+    transform: translateY(-15px) scale(1.02);
+    /* Pop out effect */
+    border-color: #D1AE37;
+    /* Gold border on hover */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .gapTitle {
@@ -194,6 +212,7 @@
     margin-bottom: 1rem;
     position: relative;
     padding-left: 20px;
+    color: #e0e0e0;
 }
 
 .gapList li::before {
@@ -201,21 +220,6 @@
     color: #D1AE37;
     position: absolute;
     left: 0;
-}
-
-.solutionCard {
-    background: rgba(255, 255, 255, 0.9);
-    /* High opacity white for readability but keeping glass hint */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 1);
-    color: #333;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.solutionCard:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
