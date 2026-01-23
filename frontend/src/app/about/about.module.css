@@ -5,7 +5,19 @@
     overflow-x: hidden;
 }
 
-/* Hero Section */
+.section {
+    padding: 6rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- Hero Section --- */
 .heroSection {
     position: relative;
     height: 90vh;
@@ -13,262 +25,429 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Cinematic Background Layer */
-    background: linear-gradient(to bottom, rgba(31, 41, 92, 0.8), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2000&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
+    background: url('/hero_bg.png') no-repeat center center/cover;
+    /* Fallback or reuse hero bg */
     background-attachment: fixed;
-    /* Parallax effect */
-    overflow: hidden;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(31, 43, 92, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 1;
 }
 
 .heroContent {
     position: relative;
     z-index: 2;
-    max-width: 900px;
     padding: 0 20px;
+    max-width: 1000px;
 }
 
 .heroHeadline {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 30px;
-    background: linear-gradient(to right, #ffffff, #a5a5a5);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
+    font-family: var(--font-heading);
+}
+
+.highlightText {
+    color: #D1AE37;
+    /* Gold */
+    display: block;
+    margin-top: 10px;
 }
 
 .heroSubline {
     font-size: 1.5rem;
-    color: #ffbe0b;
+    color: #e0e0e0;
     margin-bottom: 40px;
-    font-weight: 600;
+    font-style: italic;
+    opacity: 0.9;
 }
 
-/* Section Common */
-.section {
-    padding: 100px 0;
-    position: relative;
-}
-
-.sectionTitle {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: #1f295c;
-    text-align: center;
-}
-
-.sectionSubtitle {
-    text-align: center;
-    color: #666;
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 50px;
-}
-
-/* Dark Sections -> Converted to Light/Gray */
-.darkSection {
-    background: #f8f9fa;
-    /* Light gray instead of black */
-    color: #333333;
-}
-
-.darkSection .sectionTitle {
-    color: #1f295c;
-    /* Dark blue title */
-}
-
-.darkSection .sectionSubtitle {
-    color: #666666;
-}
-
-/* Cards */
-.cardGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.featureCard {
-    background: #ffffff;
-    /* White card */
-    border: 1px solid #e2e8f0;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.featureCard:hover {
-    transform: translateY(-10px);
-    border-color: #ffbe0b;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.cardIcon {
-    margin-bottom: 20px;
-    color: #ffbe0b;
-}
-
-.cardTitle {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #1f295c;
-    /* Dark blue title */
-}
-
-.cardText {
-    color: #555555;
-    /* Dark gray text */
-    line-height: 1.6;
-}
-
-/* Process Steps */
-.processContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.processStep {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid #eee;
-    transition: all 0.3s ease;
-}
-
-.processStep:hover {
-    transform: translateX(10px);
-    border-color: #1f295c;
-}
-
-.stepNumber {
-    font-size: 3rem;
-    font-weight: 900;
-    color: #ffbe0b;
-    opacity: 0.8;
-    line-height: 1;
-}
-
-/* Final CTA */
-.finalCta {
-    background: #1f295c;
-    /* Kept Dark Blue for branding impact */
-    text-align: center;
-    padding: 120px 0;
-}
-
-.glowBtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #ffbe0b;
-    color: #000;
-    padding: 20px 50px;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(255, 190, 11, 0.4);
-}
-
-.glowBtn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(255, 190, 11, 0.6);
-}
-
-/* Responsive */
 @media (max-width: 768px) {
     .heroHeadline {
         font-size: 2.5rem;
     }
 
-    .sectionTitle {
-        font-size: 2rem;
-    }
-
-    /* Reduce button size on mobile */
-    .glowBtn {
-        padding: 15px 30px !important;
-        /* Override inline styles if present, though we will remove them */
-        font-size: 1rem !important;
-        width: 100%;
-        justify-content: center;
-    }
-
-    /* Stack flex rows */
-    .monkeyCastingRow {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-
-    /* Why Grid becomes single column */
-    .whyGrid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Center text alignments that are forced left on desktop */
-    .centerOnMobile {
-        text-align: center !important;
-        align-items: center !important;
+    .heroSubline {
+        font-size: 1.2rem;
     }
 }
 
-/* New Layout Classes replacing inline styles */
-.monkeyCastingRow {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
+/* --- Intro Section --- */
+.gridSplit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     align-items: center;
 }
 
-/* Default Grid (Mobile First or Standard) */
-
-/* Default Grid (Mobile First or Standard) */
-.whyGrid {
-    display: grid;
-    gap: 20px;
+.introText {
     text-align: left;
 }
 
-/* Force 2 Columns on Desktop/Tablet */
-@media (min-width: 641px) {
-    .whyGrid {
-        grid-template-columns: repeat(2, 1fr);
+.sectionTitle {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #1F2B5C;
+    /* Navy */
+    text-align: center;
+}
+
+.leadText {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.introImageWrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.introImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.introImageWrapper:hover .introImage {
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+    .gridSplit {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .introText {
+        text-align: center;
+    }
+
+    .sectionTitle {
+        text-align: center !important;
     }
 }
 
-/* Force 1 Column on Mobile */
-@media (max-width: 640px) {
-    .whyGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .contactGrid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Resize Main Card Icons on Mobile */
-    .cardIcon {
-        width: 32px !important;
-        height: 32px !important;
-    }
+/* --- Why We Created (Gap Analysis) --- */
+.darkSection {
+    background-color: #1F2B5C;
+    /* Navy */
+    color: white;
 }
 
-.contactGrid {
+.sectionSubtitle {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 4rem;
+    color: #555;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gapGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 3rem;
+}
+
+.gapCard {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 20px;
+}
+
+.gapTitle {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #D1AE37;
+}
+
+.gapList {
+    list-style: none;
+    padding: 0;
+}
+
+.gapList li {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.gapList li::before {
+    content: "•";
+    color: #D1AE37;
+    position: absolute;
+    left: 0;
+}
+
+.solutionCard {
+    background: #ffffff;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .gapGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Services Grid --- */
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.serviceCard {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 2.5rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.serviceCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: #D1AE37;
+}
+
+.serviceIconBox {
+    width: 60px;
+    height: 60px;
+    background: #f9f9f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.serviceText {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1F2B5C;
+}
+
+.highlightQuote {
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #1F2B5C;
+    margin-top: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+}
+
+/* --- Philosophy --- */
+.philosophySection {
+    background: #000;
+    color: white;
+    padding: 8rem 0;
+}
+
+.philosophyBg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+    background: url('https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?q=80') center/cover;
+}
+
+.philosophyContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.philosophyHeadline {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+}
+
+.checkGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.checkItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+.processBox {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.processTitle {
+    font-size: 1.5rem;
+    color: #D1AE37;
+    margin-bottom: 1.5rem;
+}
+
+.processList {
+    list-style: none;
+    padding: 0;
+}
+
+.processList li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.stepNum {
+    color: #D1AE37;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.tagline {
+    margin-top: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .philosophyContent {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Promise --- */
+.blueSection {
+    background: #1F2B5C;
+    color: white;
+}
+
+.promiseGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.promiseCard {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    transition: background 0.3s;
+}
+
+.promiseCard:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.promiseIcon {
+    color: #D1AE37;
+    margin-bottom: 1rem;
+}
+
+/* --- Final Word --- */
+.finalWordSection {
+    padding: 8rem 0;
+    text-align: center;
+    background: #f8f8f8;
+}
+
+.finalHeadline {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1F2B5C;
+    margin-bottom: 1rem;
+}
+
+.finalSubhead {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 3rem;
+}
+
+.finalText {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.ctaWrapper {
+    margin-top: 2rem;
+}
+
+.finalBtn {
+    background: #D1AE37;
+    color: #000;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 10px 30px rgba(209, 174, 55, 0.4);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.finalBtn:hover {
+    transform: scale(1.05);
+    background: #eebb22;
+}
+
+/* Glow Button (Hero) */
+.glowBtn {
+    background: #D1AE37;
+    color: #000;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.glowBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(209, 174, 55, 0.4);
+}
+
+.ecosystemCard {
+    background: #f0f4ff;
+    padding: 4rem;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
