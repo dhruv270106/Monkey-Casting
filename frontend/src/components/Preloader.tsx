@@ -47,7 +47,7 @@ export default function GlobalPreloader({ onComplete }: { onComplete: () => void
                         left: 0,
                         width: '100vw',
                         height: '100vh',
-                        backgroundColor: '#ffffff', // White background
+                        backgroundColor: '#000000', // Black background
                         zIndex: 9999,
                         display: 'flex',
                         flexDirection: 'column',
@@ -56,7 +56,7 @@ export default function GlobalPreloader({ onComplete }: { onComplete: () => void
                     }}
                 >
                     <div style={{ position: 'relative', width: '300px', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        {/* Lottie Animation Background/Ring */}
+                        {/* Lottie Animation Background/Ring - add filter to make it fit dark theme if needed, but usually lottie is colored */}
                         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
                             <Lottie animationData={animationData} loop={true} />
                         </div>

@@ -1,42 +1,37 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import styles from './page.module.css'
-import { Clapperboard, Video, Camera, Mic, Palette, Scissors } from 'lucide-react'
-import SocialCinemaIntro from '@/components/SocialCinemaIntro'
-import { StudioIntro, WhyCreated, WhatWeDo, Philosophy, Ecosystem, PromiseCTA, FinalWord } from '@/components/MonkeyStudiosComponents'
-import HeroSection from '@/components/HeroSection'
-import { supabase } from '@/lib/supabaseClient'
-import Preloader from '@/components/Preloader'
-import { useEffect, useState } from 'react'
+import { useState } from 'react';
+import Preloader from '@/components/Preloader';
+import {
+  HeroSection,
+  WhatIsHoopCasting,
+  WhyDifferent,
+  WhoCanApply,
+  WhatWeLookFor,
+  CastingProcess,
+  WhyTrust,
+  MessageForDreamers,
+  FinalCTA
+} from '@/components/HomeSections';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <main>
+    <main className="bg-black min-h-screen text-white overflow-x-hidden">
       <Preloader onComplete={() => setLoading(false)} />
 
       {!loading && (
         <>
           <HeroSection />
-
-          {/* Intro Section - Monkey Studios Style */}
-          <StudioIntro />
-
-          {/* Social Cinema Intro - Swaps image/content order */}
-          <SocialCinemaIntro />
-
-          <WhyCreated />
-          <WhatWeDo />
-          <Philosophy />
-          <Ecosystem />
-
-          {/* Final CTA */}
-          <PromiseCTA />
-
-          {/* Separated Final Word Section */}
-          <FinalWord />
+          <WhatIsHoopCasting />
+          <WhyDifferent />
+          <WhoCanApply />
+          <WhatWeLookFor />
+          <CastingProcess />
+          <WhyTrust />
+          <MessageForDreamers />
+          <FinalCTA />
         </>
       )}
     </main>
