@@ -61,7 +61,7 @@ export const HeroSection = () => {
             {/* Background - Cinematic Image + Overlay */}
             <div className={styles.bgOverlay}>
                 <Image
-                    src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?bf=85&w=1920&auto=format&fit=crop"
+                    src="/hero_bg.png"
                     alt="Cinematic Camera"
                     fill
                     className={styles.heroImage}
@@ -154,8 +154,8 @@ export const WhatIsHoopCasting = () => {
                 <div className={styles.gridSplit}>
                     <div className={styles.visualAbstract}>
                         <Image
-                            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?bf=85&w=800&auto=format&fit=crop"
-                            alt="Authentic People"
+                            src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?bf=85&w=800&auto=format&fit=crop"
+                            alt="Film Shooting Set"
                             fill
                             className={styles.imageCover}
                         />
