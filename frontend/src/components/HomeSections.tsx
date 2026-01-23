@@ -78,8 +78,10 @@ export const HeroSection = () => {
                     className="mb-8"
                 >
                     <h1 className={styles.heroHeadline}>
-                        “Keval screen dekhna hai?<br />
-                        Ya screen par aana hai?”
+                        “Keval screen <br />
+                        dekhna hai?<br />
+                        Ya screen par <br />
+                        aana hai?”
                     </h1>
                 </motion.div>
 
