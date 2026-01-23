@@ -138,8 +138,8 @@ export default function About() {
                             transition={{ delay: 0.4 }}
                             viewport={{ once: true }}
                         >
-                            <h3 className={styles.gapTitle} style={{ color: '#1F2B5C' }}>So we built a solution:</h3>
-                            <p style={{ fontSize: '1.2rem', color: '#333' }}>
+                            <h3 className={styles.gapTitle} style={{ color: '#D1AE37' }}>So we built a solution:</h3>
+                            <p style={{ fontSize: '1.2rem', color: '#e0e0e0' }}>
                                 A professional, transparent casting gateway — where aspiring and experienced talent can be discovered based on <strong>screen suitability</strong>, not social validation.
                             </p>
                         </motion.div>
